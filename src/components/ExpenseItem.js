@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch,currency } = useContext(AppContext);
     
     const handleDeleteExpense = () => {
         dispatch({
@@ -31,12 +31,11 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        {/* <td>{currency+"....A..."+target.value}{props.cost}</td> */}
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
+        <td>{currency}{props.cost}</td>
+        <td><button className='btn btn-mktgplus' onClick={event=> increaseAllocation(props.name)}>+</button></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );
 };
-// console.log(currency+"....Aency..."+event.target.value);
-// console.log(currency.select.value);
+
 export default ExpenseItem;
